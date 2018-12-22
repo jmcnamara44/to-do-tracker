@@ -4,10 +4,13 @@ import { Activity } from './models/activity.model';
 @Injectable()
 export class ActivityService {
   activities: Activity[];
-  constructor() 
+  constructor()
   {
     this.activities = ACTIVITIES;
     console.log(this.activities);
+  }
+  addToActivities(activityToAdd: Activity) {
+    this.activities.push(activityToAdd);
   }
 
 }

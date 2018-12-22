@@ -1,10 +1,10 @@
 <div>
   <form>
     <p>What activity would you like to add?</p>
-    <label for="activity-name">What's your activity name?</label>
-    <input type="text" name="activity-name" value="name"><br>
-    <label for="hours">Hours spent</label>
-    <input type="text" name="hours" value="hours"><br>
-    <button id="new-activity">Add</button>
+    <label>What's your activity name?</label>
+    <input #name><br>
+    <label>Hours spent</label>
+    <input #hours><br>
+    <button (click)="beginAddNewActivity(name.value, hours.value); name.value=''; hours.value='';">Add</button>
   </form>
 </div>
