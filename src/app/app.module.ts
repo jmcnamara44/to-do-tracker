@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
+import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { NewActivityComponent } from './new-activity/new-activity.component';
 import { ActivityListComponent } from './activity-list/activity-list.component';
+import { ActivityDetailComponent } from './activity-detail/activity-detail.component';
 
 
 @NgModule({
@@ -13,10 +13,12 @@ import { ActivityListComponent } from './activity-list/activity-list.component';
     AppComponent,
     HeaderComponent,
     NewActivityComponent,
-    ActivityListComponent
+    ActivityListComponent,
+    ActivityDetailComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
