@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-new-activity',
@@ -7,7 +7,5 @@ import { Component } from '@angular/core';
 })
 export class NewActivityComponent {
   formSelected = null;
-  showForm() {
-    this.formSelected = true;
-  }
+  
 }
