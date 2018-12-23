@@ -1,0 +1,14 @@
+{ "activities": [{
+    "name": "Piano",
+    "hours": 6,
+    "id": "1"
+    }, {
+    "name": "Code",
+    "hours": 7,
+    "id": "2"
+      }, {
+    "name": "Read",
+    "hours": 8,
+    "id": "3"
+  }]
+}
