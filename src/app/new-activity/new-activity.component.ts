@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivityService } from './../activity.service';
 import { Activity } from './../models/activity.model';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-new-activity',
@@ -9,11 +10,11 @@ import { Activity } from './../models/activity.model';
   providers: [ActivityService]
 })
 export class NewActivityComponent implements OnInit {
-  activities: Activity[];
+  activities: FirebaseListObservable<any[]>;
   constructor(private activityService: ActivityService) { }
 
   ngOnInit() {
-    this.activities = this.activityService.activities;
+    this.activities = this.activityService.getActivities();
   }
 
   beginAddNewActivity(name: string, hours: string) {

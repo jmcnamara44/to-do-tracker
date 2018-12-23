@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Activity } from './../models/activity.model';
 import { ActivityService } from './../activity.service';
 import { Router } from '@angular/router';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-activity-list',
@@ -12,9 +13,9 @@ import { Router } from '@angular/router';
 export class ActivityListComponent implements OnInit {
 
   constructor(private router: Router, private activityService: ActivityService) { }
-  activities: Activity[];
+  activities: FirebaseListObservable<any[]>;
   ngOnInit() {
-    this.activities = this.activityService.activities;
+    this.activities = this.activityService.getActivities();
     console.log(this.activities);
   }
   goToDetailPage(clickedActivity) {
