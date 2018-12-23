@@ -9,7 +9,7 @@ const appRoutes: Routes = [
     component: HeaderComponent
   },
   {
-    path: 'details',
+    path: 'details/:id',
     component: ActivityDetailComponent
   }
 ];

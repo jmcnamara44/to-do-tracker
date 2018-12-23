@@ -7,7 +7,7 @@
       <th>Days doing activity</th>
     </tr>
     <tr *ngFor="let activity of activities">
-      <td><a routerLink="details">{{activity.name}}</a></td>
+      <td (click)="goToDetailPage(activity)">{{activity.name}}</td>
       <td>{{activity.hours}}</td>
       <td>16</td>
     </tr>

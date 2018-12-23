@@ -12,5 +12,8 @@ export class ActivityService {
   addToActivities(activityToAdd: Activity) {
     this.activities.push(activityToAdd);
   }
-
+  getActivityById(id: number) {
+    var indexPosition = id-1;
+    return this.activities[indexPosition];
+  }
 }

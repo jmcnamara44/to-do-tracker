@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Activity } from './../models/activity.model';
 import { ActivityService } from './../activity.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-activity-list',
@@ -10,11 +11,13 @@ import { ActivityService } from './../activity.service';
 })
 export class ActivityListComponent implements OnInit {
 
-  constructor(private activityService: ActivityService) { }
+  constructor(private router: Router, private activityService: ActivityService) { }
   activities: Activity[];
   ngOnInit() {
     this.activities = this.activityService.activities;
     console.log(this.activities);
   }
-
+  goToDetailPage(clickedActivity) {
+    this.router.navigate(['details', clickedActivity.id]);
+  }
 }

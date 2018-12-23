@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivityService } from './../activity.service';
 import { Activity } from './../models/activity.model';
 
@@ -8,15 +8,19 @@ import { Activity } from './../models/activity.model';
   styleUrls: ['./new-activity.component.css'],
   providers: [ActivityService]
 })
-export class NewActivityComponent {
-
+export class NewActivityComponent implements OnInit {
+  activities: Activity[];
   constructor(private activityService: ActivityService) { }
 
-  formSelected = null;
+  ngOnInit() {
+    this.activities = this.activityService.activities;
+  }
+
   beginAddNewActivity(name: string, hours: string) {
     event.preventDefault();
+    var id = this.activities.length + 1;
     var hoursToNumber = parseInt(hours);
-    var newActivity: Activity = new Activity(name, hoursToNumber);
+    var newActivity: Activity = new Activity(name, hoursToNumber, id);
     this.activityService.addToActivities(newActivity);
   }
 }
