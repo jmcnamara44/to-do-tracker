@@ -5,6 +5,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 @Injectable()
 export class ActivityService {
   activities: FirebaseListObservable<any[]>;
+
   constructor(private database: AngularFireDatabase)
   {
     this.activities = database.list('activities');
@@ -18,5 +19,11 @@ export class ActivityService {
   }
   getActivityById(activityId: string) {
     return this.database.object('activities/' + activityId);
+  }
+  addTime(selectedActivity) {
+    console.log(selectedActivity);
+    var activityEntryInFirebase = this.getActivityById(selectedActivity.$key);
+    activityEntryInFirebase.update({name: selectedActivity.name,
+    hoursPracticed: selectedActivity.hoursPracticed, goals: selectedActivity.goals});
   }
 }

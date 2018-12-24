@@ -8,8 +8,9 @@
     </tr>
     <tr *ngFor="let activity of activities | async">
       <td (click)="goToDetailPage(activity)">{{activity.name}}</td>
-      <td>{{activity.hours}}</td>
+      <td>{{activity.hoursPracticed}}</td>
       <td>{{activity.$key}}</td>
+      <app-edit-activity [selectedActivity]="activity"></app-edit-activity>
     </tr>
   </table>
 </div>

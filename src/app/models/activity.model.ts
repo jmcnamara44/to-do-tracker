@@ -1,3 +1,3 @@
 export class Activity {
-  constructor(public name: string, public hours: number, public goals: string) { }
+  constructor(public name: string, public hoursPracticed: number, public goals: string) { }
 }

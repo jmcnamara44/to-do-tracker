@@ -9,6 +9,8 @@ import { ActivityDetailComponent } from './activity-detail/activity-detail.compo
 import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { EditActivityComponent } from './edit-activity/edit-activity.component';
+import { FormsModule } from '@angular/forms';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -23,10 +25,12 @@ export const firebaseConfig = {
     HeaderComponent,
     NewActivityComponent,
     ActivityListComponent,
-    ActivityDetailComponent
+    ActivityDetailComponent,
+    EditActivityComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     routing,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule

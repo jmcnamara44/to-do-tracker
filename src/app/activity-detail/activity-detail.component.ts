@@ -21,7 +21,6 @@ export class ActivityDetailComponent implements OnInit {
       this.activityId = urlParameters['id'];
     });
     this.activityToDisplay = this.activityService.getActivityById(this.activityId);
-    console.log(this.activityToDisplay);
   }
 
 }
