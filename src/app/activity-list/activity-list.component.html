@@ -9,7 +9,7 @@
     <tr *ngFor="let activity of activities | async">
       <td (click)="goToDetailPage(activity)">{{activity.name}}</td>
       <td>{{activity.hours}}</td>
-      <td>16</td>
+      <td>{{activity.$key}}</td>
     </tr>
   </table>
 </div>

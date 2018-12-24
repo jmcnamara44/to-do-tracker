@@ -11,7 +11,7 @@ import { ActivityService } from './../activity.service';
   providers: [ActivityService]
 })
 export class ActivityDetailComponent implements OnInit {
-  activityId: number;
+  activityId: string;
   activityToDisplay;
 
   constructor(private route: ActivatedRoute, private location: Location, private activityService: ActivityService) { }
@@ -21,6 +21,7 @@ export class ActivityDetailComponent implements OnInit {
       this.activityId = urlParameters['id'];
     });
     this.activityToDisplay = this.activityService.getActivityById(this.activityId);
+    console.log(this.activityToDisplay);
   }
 
 }

@@ -17,8 +17,7 @@ export class ActivityService {
   getActivities() {
     return this.activities;
   }
-  getActivityById(id: number) {
-    var indexPosition = id-1;
-    return this.activities[indexPosition];
+  getActivityById(activityId: string) {
+    return this.database.object('activities/' + activityId);
   }
 }

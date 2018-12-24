@@ -13,12 +13,16 @@ import { FirebaseListObservable } from 'angularfire2/database';
 export class ActivityListComponent implements OnInit {
 
   constructor(private router: Router, private activityService: ActivityService) { }
+
   activities: FirebaseListObservable<any[]>;
+
   ngOnInit() {
     this.activities = this.activityService.getActivities();
     console.log(this.activities);
   }
+
   goToDetailPage(clickedActivity) {
-    this.router.navigate(['details', clickedActivity.id]);
+    this.router.navigate(['details', clickedActivity.$key]);
   }
+
 }
