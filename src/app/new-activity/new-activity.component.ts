@@ -14,10 +14,10 @@ export class NewActivityComponent implements OnInit {
   ngOnInit() {
   }
 
-  beginAddNewActivity(name: string, hours: string) {
+  beginAddNewActivity(name: string, hours: string, goals: string) {
     event.preventDefault();
     var hoursToNumber = parseInt(hours);
-    var newActivity: Activity = new Activity(name, hoursToNumber);
+    var newActivity: Activity = new Activity(name, hoursToNumber, goals);
     this.activityService.addToActivities(newActivity);
   }
 }

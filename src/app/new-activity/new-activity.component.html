@@ -5,6 +5,8 @@
     <input #name><br>
     <label>Hours spent</label>
     <input #hours><br>
-    <button (click)="beginAddNewActivity(name.value, hours.value); name.value=''; hours.value='';">Add</button>
+    <label>Goals</label>
+    <textarea #goals></textarea>
+    <button (click)="beginAddNewActivity(name.value, hours.value, goals.value); name.value=''; hours.value='';goals.value=''">Add</button>
   </form>
 </div>

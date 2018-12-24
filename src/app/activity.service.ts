@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ACTIVITIES } from './mock-activities';
 import { Activity } from './models/activity.model';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
