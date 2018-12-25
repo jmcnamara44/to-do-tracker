@@ -1,3 +1,5 @@
 <p>
-  {{(activityToDisplay | async)?.name}}, {{(activityToDisplay | async)?.hoursPracticed}}, {{(activityToDisplay | async)?.$key}}, {{(activityToDisplay | async)?.goals}}
+  {{activityToDisplay?.name}}, {{activityToDisplay?.hoursPracticed}}, {{activityToDisplay?.$key}}, {{activityToDisplay?.goals}}
 </p>
+
+<app-edit-activity [selectedActivity]="activityToDisplay"></app-edit-activity>

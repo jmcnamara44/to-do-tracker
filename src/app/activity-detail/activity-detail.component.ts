@@ -20,7 +20,11 @@ export class ActivityDetailComponent implements OnInit {
     this.route.params.forEach((urlParameters) => {
       this.activityId = urlParameters['id'];
     });
-    this.activityToDisplay = this.activityService.getActivityById(this.activityId);
+    this.activityService.getActivityById(this.activityId).subscribe(dataLastEmittedFromObserver => {
+      this.activityToDisplay = dataLastEmittedFromObserver;
+
+      console.log(this.activityToDisplay);
+    })
   }
 
 }

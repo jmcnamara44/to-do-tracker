@@ -4,12 +4,10 @@
     <tr>
       <th>Activity Name</th>
       <th>Time doing activity (hours)</th>
-      <th>Days doing activity</th>
     </tr>
     <tr *ngFor="let activity of activities | async">
       <td (click)="goToDetailPage(activity)">{{activity.name}}</td>
       <td>{{activity.hoursPracticed}}</td>
-      <td>{{activity.$key}}</td>
       <app-edit-activity [selectedActivity]="activity"></app-edit-activity>
     </tr>
   </table>

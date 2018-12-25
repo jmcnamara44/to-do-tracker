@@ -13,14 +13,13 @@ export class EditActivityComponent implements OnInit {
   constructor(private activityService: ActivityService) { }
 
   ngOnInit() {
-    console.log(this.selectedActivity);
   }
 
-  beginUpdatingActivity(time: number, selectedActivit) {
-    console.log(selectedActivit);
-    selectedActivit.hoursPracticed += time;
-    console.log(selectedActivit)
-    this.activityService.addTime(selectedActivit);
+  beginUpdatingActivity(time: number, selectedActivity) {
+    console.log(selectedActivity);
+    selectedActivity.hoursPracticed += time;
+    console.log(selectedActivity)
+    this.activityService.addTime(selectedActivity);
   }
 
 }

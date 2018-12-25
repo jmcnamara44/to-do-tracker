@@ -9,7 +9,6 @@ export class ActivityService {
   constructor(private database: AngularFireDatabase)
   {
     this.activities = database.list('activities');
-    console.log(this.activities);
   }
   addToActivities(activityToAdd: Activity) {
     this.activities.push(activityToAdd);
@@ -21,7 +20,6 @@ export class ActivityService {
     return this.database.object('activities/' + activityId);
   }
   addTime(selectedActivity) {
-    console.log(selectedActivity);
     var activityEntryInFirebase = this.getActivityById(selectedActivity.$key);
     activityEntryInFirebase.update({name: selectedActivity.name,
     hoursPracticed: selectedActivity.hoursPracticed, goals: selectedActivity.goals});

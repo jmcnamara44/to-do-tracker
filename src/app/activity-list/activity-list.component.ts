@@ -18,7 +18,6 @@ export class ActivityListComponent implements OnInit {
 
   ngOnInit() {
     this.activities = this.activityService.getActivities();
-    console.log(this.activities);
   }
 
   goToDetailPage(clickedActivity) {
