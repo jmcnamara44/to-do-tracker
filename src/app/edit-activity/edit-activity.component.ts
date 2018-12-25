@@ -17,9 +17,7 @@ export class EditActivityComponent implements OnInit {
   }
 
   beginUpdatingActivity(time: number, selectedActivity) {
-    console.log(selectedActivity);
     selectedActivity.hoursPracticed += time;
-    console.log(selectedActivity)
     this.activityService.addTime(selectedActivity);
   }
 

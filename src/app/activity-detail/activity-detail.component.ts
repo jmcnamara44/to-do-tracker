@@ -13,6 +13,7 @@ import { ActivityService } from './../activity.service';
 export class ActivityDetailComponent implements OnInit {
   activityId: string;
   activityToDisplay;
+  daysLeft: number;
 
   constructor(private route: ActivatedRoute, private location: Location, private activityService: ActivityService) { }
 
@@ -22,8 +23,10 @@ export class ActivityDetailComponent implements OnInit {
     });
     this.activityService.getActivityById(this.activityId).subscribe(dataLastEmittedFromObserver => {
       this.activityToDisplay = dataLastEmittedFromObserver;
-
-      console.log(this.activityToDisplay);
+      var date1: Date = new Date(this.activityToDisplay.goalCompletionDate);
+      var date2: Date = new Date(this.activityToDisplay.dateCreated);
+      this.daysLeft = date1.getTime() - date2.getTime();
+      console.log(this.daysLeft / 1000 / 60 / 60 / 24 / 365);
     })
   }
 
