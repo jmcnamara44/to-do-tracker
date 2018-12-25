@@ -3,10 +3,12 @@
     <p>What activity would you like to add?</p>
     <label>What's your activity name?</label>
     <input #name><br>
-    <label>Hours spent</label>
-    <input #hours><br>
-    <label>Goals</label>
-    <textarea #goals></textarea>
-    <button (click)="beginAddNewActivity(name.value, hours.value, goals.value); name.value=''; hours.value='';goals.value=''">Add</button>
+    <label>Hours you'd like to complete?</label>
+    <input #hoursGoal><br>
+    <label>When would you like to complete your goal?</label>
+    <input type="date" #goalCompletionDate><br>
+    <label>Notes</label>
+    <textarea #notes></textarea>
+    <button (click)="beginAddNewActivity(name.value, hoursGoal.value, goalCompletionDate.value, notes.value); name.value=''; hoursGoal.value=''; goalCompletionDate.value=''; notes.value='';">Add</button>
   </form>
 </div>

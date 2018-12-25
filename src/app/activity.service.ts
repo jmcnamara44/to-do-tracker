@@ -22,7 +22,7 @@ export class ActivityService {
   addTime(selectedActivity) {
     var activityEntryInFirebase = this.getActivityById(selectedActivity.$key);
     activityEntryInFirebase.update({name: selectedActivity.name,
-    hoursPracticed: selectedActivity.hoursPracticed, goals: selectedActivity.goals});
+    hoursPracticed: selectedActivity.hoursPracticed, goals: selectedActivity.goals, dateCreated: selectedActivity.dateCreated});
   }
   deleteActivity(activityToDelete){
     var activityEntryInFirebase = this.getActivityById(activityToDelete.$key);
