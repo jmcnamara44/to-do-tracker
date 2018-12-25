@@ -24,4 +24,8 @@ export class ActivityService {
     activityEntryInFirebase.update({name: selectedActivity.name,
     hoursPracticed: selectedActivity.hoursPracticed, goals: selectedActivity.goals});
   }
+  deleteActivity(activityToDelete){
+    var activityEntryInFirebase = this.getActivityById(activityToDelete.$key);
+    activityEntryInFirebase.remove();
+  }
 }
