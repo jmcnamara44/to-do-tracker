@@ -11,6 +11,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { EditActivityComponent } from './edit-activity/edit-activity.component';
 import { FormsModule } from '@angular/forms';
+import { CalendarComponent } from './calendar/calendar.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -26,7 +27,8 @@ export const firebaseConfig = {
     NewActivityComponent,
     ActivityListComponent,
     ActivityDetailComponent,
-    EditActivityComponent
+    EditActivityComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,

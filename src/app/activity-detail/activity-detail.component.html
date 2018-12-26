@@ -1,5 +1,5 @@
 <p><strong>Name: </strong>{{activityToDisplay?.name}}</p>
-<p><strong>Hours Practiced: </strong>{{(activityToDisplay?.hoursPracticed / 60) | number: '1.0-1' }}</p>
+<p><strong>Hours Practiced: </strong>{{(activityToDisplay?.hoursPracticed / 60) | number: '1.0-2' }}</p>
 <p><strong>Goals: </strong>{{activityToDisplay?.notes}}</p>
 <p><strong>Date Created: </strong>{{activityToDisplay?.dateCreated | date: 'shortDate' }}</p>
 <p><strong>Hours Left to Practice: </strong>{{((activityToDisplay?.hoursToComplete - activityToDisplay?.hoursPracticed) / 60) | number: '1.0-1' }}</p>
@@ -8,3 +8,7 @@
 
 
 <app-edit-activity [selectedActivity]="activityToDisplay"></app-edit-activity>
+
+<hr>
+
+<app-calendar></app-calendar>
