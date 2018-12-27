@@ -26,7 +26,7 @@ export class ActivityDetailComponent implements OnInit {
       var date1: Date = new Date(this.activityToDisplay.goalCompletionDate);
       var date2: Date = new Date(this.activityToDisplay.dateCreated);
       this.daysLeft = date1.getTime() - date2.getTime();
-      console.log(this.daysLeft / 1000 / 60 / 60 / 24 / 365);
+      console.log();
     })
   }
 

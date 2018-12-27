@@ -18,15 +18,14 @@ export class NewActivityComponent implements OnInit {
     event.preventDefault();
     var hoursGoalToNumber = parseInt(hoursGoal) * 60;
     var goalCompletionDateAsDate: Date = new Date(goalCompletionDate);
-    var goalCompletionDateAsString: string = goalCompletionDateAsDate.toString();
+    var goalCompletionDateAsString: string = goalCompletionDateAsDate.toDateString();
     var todaysDate: Date = new Date();
-    var todaysDateToString: string = todaysDate.toString();
-    var initialHours = {
-      "today": 0, "tomorrow": 2, "and the next day": 5
-    };
-    console.log(initialHours.today);
-    var newActivity: Activity = new Activity(name, initialHours, hoursGoalToNumber, goalCompletionDateAsString, notes, todaysDateToString);
+    var todaysDateToString: string = todaysDate.toDateString();
+    var initialHours = {};
+    initialHours[todaysDateToString] = 0;
+    var newActivity: Activity = new Activity(name, initialHours, hoursGoalToNumber, 0, goalCompletionDateAsString, notes, todaysDateToString);
     console.log(newActivity);
+    console.log(initialHours["Wed Dec 26 2018"])
     this.activityService.addToActivities(newActivity);
   }
 }

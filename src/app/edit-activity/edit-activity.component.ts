@@ -17,7 +17,14 @@ export class EditActivityComponent implements OnInit {
   }
 
   beginUpdatingActivity(time: number, selectedActivity) {
-    selectedActivity.hoursPracticed += time;
+    selectedActivity.totalHoursPracticed += time;
+    var practiceDate: string = new Date().toDateString();
+    var boo = practiceDate in selectedActivity.hoursPracticed;
+    if(practiceDate in selectedActivity.hoursPracticed){
+      selectedActivity.hoursPracticed[practiceDate] += time;
+    } else {
+      selectedActivity.hoursPracticed[practiceDate] = time;
+    }
     this.activityService.addTime(selectedActivity);
   }
 
