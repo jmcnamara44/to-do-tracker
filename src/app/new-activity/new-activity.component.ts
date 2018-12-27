@@ -23,9 +23,7 @@ export class NewActivityComponent implements OnInit {
     var todaysDateToString: string = todaysDate.toDateString();
     var initialHours = {};
     initialHours[todaysDateToString] = 0;
-    var newActivity: Activity = new Activity(name, initialHours, hoursGoalToNumber, 0, goalCompletionDateAsString, notes, todaysDateToString);
-    console.log(newActivity);
-    console.log(initialHours["Wed Dec 26 2018"])
+    var newActivity: Activity = new Activity(name, initialHours, 0, hoursGoalToNumber, goalCompletionDateAsString, notes, todaysDateToString);
     this.activityService.addToActivities(newActivity);
   }
 }
