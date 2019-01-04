@@ -13,7 +13,8 @@ import { ActivityService } from './../activity.service';
 export class ActivityDetailComponent implements OnInit {
   activityId: string;
   activityToDisplay;
-  daysLeft: number;
+  totalDays: number;
+  objectKeys: number;
 
   constructor(private route: ActivatedRoute, private location: Location, private activityService: ActivityService) { }
 
@@ -23,10 +24,10 @@ export class ActivityDetailComponent implements OnInit {
     });
     this.activityService.getActivityById(this.activityId).subscribe(dataLastEmittedFromObserver => {
       this.activityToDisplay = dataLastEmittedFromObserver;
-      var date1: Date = new Date(this.activityToDisplay.goalCompletionDate);
+      var date1: Date = new Date();
       var date2: Date = new Date(this.activityToDisplay.dateCreated);
-      this.daysLeft = date1.getTime() - date2.getTime();
-      console.log();
+      this.totalDays = Math.round((date1.getTime() - date2.getTime()) / 1000 / 60 / 60 / 24);
+      this.objectKeys = Object.keys(this.activityToDisplay.hoursPracticed).length;
     })
   }
 

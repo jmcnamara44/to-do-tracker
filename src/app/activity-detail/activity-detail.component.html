@@ -1,11 +1,13 @@
 <p><strong>Name: </strong>{{activityToDisplay?.name}}</p>
-<p><strong>Hours Practiced: </strong>{{(activityToDisplay?.totalHoursPracticed / 60) | number: '1.0-2' }}</p>
+<p><strong>Hours Practiced: </strong>{{(activityToDisplay?.totalHoursPracticed / 60) | number: '1.0-2'}}</p>
 <p><strong>Goals: </strong>{{activityToDisplay?.notes}}</p>
-<p><strong>Date Created: </strong>{{activityToDisplay?.dateCreated | date: 'shortDate' }}</p>
-<p><strong>Hours Left to Practice: </strong>{{((activityToDisplay?.hoursToComplete - activityToDisplay?.totalHoursPracticed) / 60) | number: '1.0-1' }}</p>
+<p><strong>Date Created: </strong>{{activityToDisplay?.dateCreated | date: 'shortDate'}}</p>
+<p><strong>Hours Left to Practice: </strong>{{((activityToDisplay?.hoursToComplete - activityToDisplay?.totalHoursPracticed) / 60) | number: '1.0-1'}}</p>
 <!-- <p><strong>Days Left To Complete Goal: </strong>{{(activityToDisplay?.goalCompletionDate - activityToDisplay?.dateCreated) | number: '1.0-1' }}</p> -->
-<p><strong>Date Created: </strong>{{activityToDisplay?.dateCreated | date: 'shortDate' }}</p>
-
+<p><strong>Date Created: </strong>{{activityToDisplay?.dateCreated | date: 'shortDate'}}</p>
+<p><strong>Number of days practiced:</strong> {{objectKeys}}</p>
+<p><strong>Number of days since creating goal:</strong> {{totalDays}}</p>
+<p><strong>Average practiced per day:</strong> {{((activityToDisplay?.totalHoursPracticed / totalDays) / 60) | number: '1.0-1'}}</p>
 
 <app-edit-activity [selectedActivity]="activityToDisplay"></app-edit-activity>
 
