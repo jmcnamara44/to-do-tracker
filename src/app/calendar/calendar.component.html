@@ -1,65 +1,44 @@
-<table id="calendar">
-  <tr>
-    <th>Sunday</th>
-    <th>Monday</th>
-    <th>Tuesday</th>
-    <th>Wednesday</th>
-    <th>Thursday</th>
-    <th>Friday</th>
-    <th>Saturday</th>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>12/1/18</td>
-  </tr>
-  <tr>
-    <td>12/2/18</td>
-    <td>12/3/18</td>
-    <td>12/4/18</td>
-    <td>12/5/18</td>
-    <td>12/6/18</td>
-    <td>12/7/18</td>
-    <td>12/8/18</td>
-  </tr>
-  <tr>
-    <td>12/9/18</td>
-    <td>12/10/18</td>
-    <td>12/11/18</td>
-    <td>12/12/18</td>
-    <td>12/13/18</td>
-    <td>12/14/18</td>
-    <td>12/15/18</td>
-  </tr>
-  <tr>
-    <td>12/16/18</td>
-    <td>12/17/18</td>
-    <td>12/18/18</td>
-    <td>12/19/18</td>
-    <td>12/20/18</td>
-    <td>12/21/18</td>
-    <td>12/22/18</td>
-  </tr>
-  <tr>
-    <td>12/23/18</td>
-    <td>12/24/18</td>
-    <td>12/25/18</td>
-    <td>12/26/18</td>
-    <td>12/27/18</td>
-    <td>12/28/18</td>
-    <td>12/29/18</td>
-  </tr>
-  <tr>
-    <td>12/30/18</td>
-    <td>12/31/18</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
+<div>
+  <h3 id="month-name"></h3>
+  <table id="calendar">
+    <thead>
+      <tr>
+        <th>Sunday</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+      </tr>
+    </thead>
+    <tbody id="calendar-body">
+
+    </tbody>
+  </table>
+  <form class="form-inline">
+    <label class="lead mr-2 ml-2" for="month">Jump To: </label>
+    <select class="form-control col-sm-4" name="month" id="month">
+      <option value=0>Jan</option>
+      <option value=1>Feb</option>
+      <option value=2>Mar</option>
+      <option value=3>Apr</option>
+      <option value=4>May</option>
+      <option value=5>Jun</option>
+      <option value=6>Jul</option>
+      <option value=7>Aug</option>
+      <option value=8>Sep</option>
+      <option value=9>Oct</option>
+      <option value=10>Nov</option>
+      <option value=11>Dec</option>
+    </select>
+
+
+    <label for="year"></label>
+    <select class="form-control col-sm-4" name="year" id="year">
+      <option value=2028>2028</option>
+      <option value=2029>2029</option>
+      <option value=2030>2030</option>
+    </select>
+  </form>
+</div>

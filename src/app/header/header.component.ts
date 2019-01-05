@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  showFormClicked = null;
+
+  showFormClicked = false;
   startShowForm() {
     this.showFormClicked = true;
   }
