@@ -1,4 +1,19 @@
-<button (click)="beginUpdatingActivity(15, selectedActivity)">Add 15 minutes</button>
-<button (click)="beginUpdatingActivity(30, selectedActivity)">Add 30 minutes</button>
-<button (click)="beginUpdatingActivity(60, selectedActivity)">Add 1 hour</button>
+<button (click)="beginUpdatingActivity(15, selectedActivity)">Practiced for 15 minutes</button>
+<button (click)="beginUpdatingActivity(30, selectedActivity)">Practiced for 30 minutes</button>
+<button (click)="beginUpdatingActivity(60, selectedActivity)">Practiced for 1 hour</button>
 <button (click)="beginDeletingActivity(selectedActivity)">Delete Me</button>
+<button (click)="beginEditingGoalDetails(selectedActivity)">Edit Goal Details</button>
+
+<div *ngIf="editGoal">
+  <p>Edit your activity details below!</p>
+  <label>Activity Name:</label>
+  <input [(ngModel)]="selectedActivity.name"><br>
+  <label>Hours you'd like to complete:</label>
+  <input [(ngModel)]="selectedActivity.hoursToComplete"><br>
+  <label>When would you like to complete your goal?</label>
+  <input type="date" [(ngModel)]="selectedActivity.goalCompletionDate"><br>
+  <label>Notes</label>
+  <textarea [(ngModel)]="selectedActivity.notes"></textarea>
+  <button (click)="finishEditingActivity(); name.value=''; hoursGoal.value=''; goalCompletionDate.value=''; notes.value='';">Save Changes</button>
+  <button (click)="cancelEditingGoal()">Cancel</button>
+</div>
