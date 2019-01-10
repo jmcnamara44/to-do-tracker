@@ -17,7 +17,26 @@ export class CalendarComponent implements OnInit {
     this.showCalendar(this.currentMonth, this.currentYear)
   }
 
-  
+  next() {
+    if (this.currentMonth === 11) {
+      this.currentMonth = 0;
+      this.currentYear += 1;
+    } else {
+      this.currentMonth += 1;
+    }
+    this.showCalendar(this.currentMonth, this.currentYear);
+  }
+
+  previous() {
+    if (this.currentMonth === 0) {
+      this.currentMonth = 11;
+      this.currentYear -= 1;
+    } else {
+      this.currentMonth -= 1;
+    }
+    this.showCalendar(this.currentMonth, this.currentYear);
+  }
+
   showCalendar(month, year) {
     let tbl = document.getElementById("calendar-body"); // body of the calendar
 
