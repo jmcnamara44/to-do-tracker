@@ -51,29 +51,31 @@ export class CalendarComponent implements OnInit {
       // creates a table row
       let row = document.createElement("tr");
 
-      //creating individual cells, filing them up with data.
+      //creating individual cells, filling them up with data.
       for (let j = 0; j < 7; j++) {
-          if (i === 0 && j < firstDay) {
-              let cell = document.createElement("td");
-              let cellText = document.createTextNode("");
-              cell.appendChild(cellText);
-              row.appendChild(cell);
-          }
-          else if (date > daysInMonth) {
-              break;
-          }
+        if (i === 0 && j < firstDay) {
+          let cell = document.createElement("td");
+          let cellText = document.createTextNode("");
+          cell.appendChild(cellText);
+          row.appendChild(cell);
+        }
+        else if (date > daysInMonth) {
+          break;
+        }
 
-          else {
-              let cell = document.createElement("td");
-              var dateString: string = date.toString();
-              let cellText = document.createTextNode(dateString);
-              // if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-              //     cell.classList.add("bg-info");
-              // } // color today's date
-              cell.appendChild(cellText);
-              row.appendChild(cell);
-              date++;
-          }
+        else {
+          let cell = document.createElement("td");
+          var dateString: string = date.toString();
+          let cellText = document.createTextNode(dateString);
+          cell.className = "::cellStyle";
+          cell.style.cssText = "border: 1px solid #dddddd; width: 100px; height: 100px; vertical-align: top; text-align: right;";
+          // if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+          //     cell.classList.add("bg-info");
+          // } // color today's date
+          cell.appendChild(cellText);
+          row.appendChild(cell);
+          date++;
+        }
       }
       tbl.appendChild(row); // appending each row into calendar body.
     }
