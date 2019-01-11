@@ -1,20 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { ActivityService } from './../activity.service';
 
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.css']
+  styleUrls: ['./calendar.component.css'],
+  providers: [ActivityService]
 })
 export class CalendarComponent implements OnInit {
+  activityToDisplay;
+  activityId: string;
   currentMonth: number = (new Date().getMonth());
   currentYear: number = (new Date().getFullYear());
-  // month
   months: string[] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private location: Location, private activityService: ActivityService) { }
 
   ngOnInit() {
-    this.showCalendar(this.currentMonth, this.currentYear)
+    this.route.params.forEach((urlParameters) => {
+      this.activityId = urlParameters['id'];
+    });
+    this.activityService.getActivityById(this.activityId).subscribe(dataLastEmittedFromObserver => {
+      this.activityToDisplay = dataLastEmittedFromObserver;
+      this.showCalendar(this.currentMonth, this.currentYear)
+    })
   }
 
   next() {
@@ -65,14 +76,25 @@ export class CalendarComponent implements OnInit {
 
         else {
           let cell = document.createElement("td");
-          var dateString: string = date.toString();
+          let dateString: string = date.toString();
           let cellText = document.createTextNode(dateString);
+          let lineBreak = document.createElement("br");
+          let sampleDate: string = (new Date(year, month, date).toDateString());
+          let daysHours: string;
+          if (this.activityToDisplay.hoursPracticed.hasOwnProperty(sampleDate)) {
+            daysHours = (this.activityToDisplay.hoursPracticed[sampleDate] / 60) + " hours practiced.";
+          } else {
+            daysHours = "";
+          }
+          let daysHoursNode = document.createTextNode(daysHours);
           cell.className = "::cellStyle";
           cell.style.cssText = "border: 1px solid #dddddd; width: 100px; height: 100px; vertical-align: top; text-align: right;";
           // if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
           //     cell.classList.add("bg-info");
           // } // color today's date
           cell.appendChild(cellText);
+          cell.appendChild(lineBreak);
+          cell.appendChild(daysHoursNode);
           row.appendChild(cell);
           date++;
         }

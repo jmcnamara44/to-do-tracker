@@ -17,7 +17,7 @@ export class ActivityDetailComponent implements OnInit {
   objectKeys: number;
   goalDaysRange: number;
   todaysHours: number;
-  
+
   constructor(private route: ActivatedRoute, private location: Location, private activityService: ActivityService) { }
 
   ngOnInit() {

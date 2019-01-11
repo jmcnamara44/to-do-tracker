@@ -11,11 +11,10 @@ import { Router } from '@angular/router'
 export class EditActivityComponent implements OnInit {
   @Input() selectedActivity;
   editGoal: boolean = false;
-  
+
   constructor(private activityService: ActivityService, private router: Router) { }
 
   ngOnInit() {
-    console.log(this.editGoal);
   }
 
   beginUpdatingActivity(time: number, selectedActivity) {
@@ -36,11 +35,11 @@ export class EditActivityComponent implements OnInit {
     }
 
   }
-  
+
   beginEditingGoalDetails(activityToEdit) {
     this.editGoal = true;
   }
-  
+
   cancelEditingGoal() {
     this.editGoal = false;
   }
