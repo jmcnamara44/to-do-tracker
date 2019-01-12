@@ -14,6 +14,8 @@ export class CalendarComponent implements OnInit {
   activityId: string;
   currentMonth: number = (new Date().getMonth());
   currentYear: number = (new Date().getFullYear());
+  today: Date = new Date();
+  
   months: string[] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
   constructor(private route: ActivatedRoute, private location: Location, private activityService: ActivityService) { }
@@ -89,9 +91,9 @@ export class CalendarComponent implements OnInit {
           let daysHoursNode = document.createTextNode(daysHours);
           cell.className = "::cellStyle";
           cell.style.cssText = "border: 1px solid #dddddd; width: 100px; height: 100px; vertical-align: top; text-align: right;";
-          // if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-          //     cell.classList.add("bg-info");
-          // } // color today's date
+          if (date === this.today.getDate() && year === this.today.getFullYear() && month === this.today.getMonth()) {
+              cell.style.cssText += "background-color: black; color: white;";
+          } // color today's date
           cell.appendChild(cellText);
           cell.appendChild(lineBreak);
           cell.appendChild(daysHoursNode);
