@@ -17,13 +17,14 @@ export class EditActivityComponent implements OnInit {
   ngOnInit() {
   }
 
-  beginUpdatingActivity(time: number, selectedActivity) {
-    selectedActivity.totalHoursPracticed += time;
+  beginUpdatingActivity(time, selectedActivity) {
+    var timeNumber = parseInt(time);
+    selectedActivity.totalHoursPracticed += timeNumber;
     var practiceDate: string = new Date().toDateString();
     if(practiceDate in selectedActivity.hoursPracticed){
-      selectedActivity.hoursPracticed[practiceDate] += time;
+      selectedActivity.hoursPracticed[practiceDate] += timeNumber;
     } else {
-      selectedActivity.hoursPracticed[practiceDate] = time;
+      selectedActivity.hoursPracticed[practiceDate] = timeNumber;
     }
     this.activityService.addTime(selectedActivity);
   }
