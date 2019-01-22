@@ -11,7 +11,10 @@ import { Router } from '@angular/router'
 export class EditActivityComponent implements OnInit {
   @Input() selectedActivity;
   editGoal: boolean = false;
-
+  editDay: boolean = false;
+  practiceDate = new Date(1970, 0, 0);
+  d;
+  
   constructor(private activityService: ActivityService, private router: Router) { }
 
   ngOnInit() {
@@ -21,7 +24,7 @@ export class EditActivityComponent implements OnInit {
     var timeNumber = parseInt(time);
     selectedActivity.totalHoursPracticed += timeNumber;
     var practiceDate: string = new Date().toDateString();
-    if(practiceDate in selectedActivity.hoursPracticed){
+    if (practiceDate in selectedActivity.hoursPracticed) {
       selectedActivity.hoursPracticed[practiceDate] += timeNumber;
     } else {
       selectedActivity.hoursPracticed[practiceDate] = timeNumber;
@@ -41,8 +44,32 @@ export class EditActivityComponent implements OnInit {
     this.editGoal = true;
   }
 
+  beginUpdatingASpecificDay() {
+    this.editDay = true;
+  }
+
   cancelEditingGoal() {
     this.editGoal = false;
+  }
+  
+  parsePracticeDate(practiceDate) {
+    var parts = practiceDate.split('-');
+    this.d = (new Date(parts[0], parts[1]-1, parts[2]).toDateString());
+  }
+  
+  changeDayshours(practiceDate, newHours, activity) {
+    let parts = practiceDate.split('-');
+    let dateParse = (new Date(parts[0], parts[1]-1, parts[2]).toDateString());
+    let minutesParse = parseInt(newHours);
+    
+    if (dateParse in activity.hoursPracticed) {
+      activity.totalHoursPracticed -= activity.hoursPracticed[dateParse];
+    } 
+    
+    activity.totalHoursPracticed += minutesParse;
+    activity.hoursPracticed[dateParse] = minutesParse;
+    
+    this.activityService.addTime(activity);
   }
 
 }

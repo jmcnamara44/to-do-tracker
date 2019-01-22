@@ -15,7 +15,7 @@ export class CalendarComponent implements OnInit {
   currentMonth: number = (new Date().getMonth());
   currentYear: number = (new Date().getFullYear());
   today: Date = new Date();
-  
+  selectedDate: string;
   months: string[] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
   constructor(private route: ActivatedRoute, private location: Location, private activityService: ActivityService) { }
@@ -28,6 +28,12 @@ export class CalendarComponent implements OnInit {
       this.activityToDisplay = dataLastEmittedFromObserver;
       this.showCalendar(this.currentMonth, this.currentYear)
     })
+  }
+
+  editDaysHours(sample) {
+    console.log(sample);
+    this.selectedDate = sample;
+    // console.log(popup);
   }
 
   next() {
@@ -76,30 +82,29 @@ export class CalendarComponent implements OnInit {
           break;
         }
 
-        else {
+        else {  //start of lff
           let cell = document.createElement("td");
           let dateString: string = date.toString();
           let cellText = document.createTextNode(dateString);
           let lineBreak = document.createElement("br");
           let sampleDate: string = (new Date(year, month, date).toDateString());
-          let daysHours: string;
-          if (this.activityToDisplay.hoursPracticed.hasOwnProperty(sampleDate)) {
-            daysHours = (this.activityToDisplay.hoursPracticed[sampleDate] / 60) + " hours practiced.";
-          } else {
-            daysHours = "";
-          }
-          let daysHoursNode = document.createTextNode(daysHours);
           cell.className = "::cellStyle";
           cell.style.cssText = "border: 1px solid #dddddd; width: 100px; height: 100px; vertical-align: top; text-align: right;";
           if (date === this.today.getDate() && year === this.today.getFullYear() && month === this.today.getMonth()) {
               cell.style.cssText += "background-color: black; color: white;";
           } // color today's date
+
           cell.appendChild(cellText);
           cell.appendChild(lineBreak);
-          cell.appendChild(daysHoursNode);
+          if (this.activityToDisplay.hoursPracticed.hasOwnProperty(sampleDate)) {
+            let daysHours: string;
+            daysHours = (this.activityToDisplay.hoursPracticed[sampleDate] / 60).toFixed(2) + " hours practiced.";
+            let daysHoursNode = document.createTextNode(daysHours);
+            cell.appendChild(daysHoursNode);
+          }
           row.appendChild(cell);
           date++;
-        }
+        } //end of lff
       }
       tbl.appendChild(row); // appending each row into calendar body.
     }

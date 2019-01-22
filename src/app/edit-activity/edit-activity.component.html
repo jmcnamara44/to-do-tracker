@@ -23,3 +23,17 @@
   <button (click)="finishEditingActivity(); name.value=''; hoursGoal.value=''; goalCompletionDate.value=''; notes.value='';">Save Changes</button>
   <button (click)="cancelEditingGoal()">Cancel</button>
 </div>
+
+
+
+<button (click)="beginUpdatingASpecificDay()">Edit a specific days hours practiced</button>
+<div *ngIf="editDay">
+  <label>Which day would you like to edit?</label>
+  <input type="date" [(ngModel)]="practiceDate"><br>
+  <button (click)="parsePracticeDate(practiceDate)">Ok</button>
+  <p>Hours you entered originally: {{selectedActivity.hoursPracticed[d] / 60}}</p>
+  <label>What are the new hours spent?</label>
+  <input type="number" min=0 #newHours><br>
+  <button>Keep exisiting hours practiced?</button>
+  <button (click)="changeDayshours(practiceDate, newHours.value, selectedActivity); newHours.value='';">Update to new hours practiced?</button>
+</div>
