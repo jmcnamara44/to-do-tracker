@@ -93,7 +93,7 @@ export class CalendarComponent implements OnInit {
           if (date === this.today.getDate() && year === this.today.getFullYear() && month === this.today.getMonth()) {
               cell.style.cssText += "background-color: black; color: white;";
           } // color today's date
-
+          
           cell.appendChild(cellText);
           cell.appendChild(lineBreak);
           if (this.activityToDisplay.hoursPracticed.hasOwnProperty(sampleDate)) {

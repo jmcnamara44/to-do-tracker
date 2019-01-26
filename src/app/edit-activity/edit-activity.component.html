@@ -7,7 +7,7 @@
   <form>
     <label>Enter a different pratice amount for today (minutes).</label>
     <input type="number" min=0 #hoursPracticed><br>
-    <button (click)="beginUpdatingActivity(hoursPracticed.value, selectedActivity); hoursPracticed.value='';">Add</button>
+    <button type="button" (click)="beginUpdatingActivity(hoursPracticed.value, selectedActivity); hoursPracticed.value='';">Add</button>
   </form>
 </div>
 <div *ngIf="editGoal">
@@ -23,8 +23,6 @@
   <button (click)="finishEditingActivity(); name.value=''; hoursGoal.value=''; goalCompletionDate.value=''; notes.value='';">Save Changes</button>
   <button (click)="cancelEditingGoal()">Cancel</button>
 </div>
-
-
 
 <button (click)="beginUpdatingASpecificDay()">Edit a specific days hours practiced</button>
 <div *ngIf="editDay">
