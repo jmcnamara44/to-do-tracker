@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { ActivityDetailComponent } from './activity-detail/activity-detail.component';
 import { CreateUserComponent } from './create-user/create-user.component';
-
+import { LoginComponent } from './login/login.component';
 const appRoutes: Routes = [
   {
     path: '',
@@ -16,6 +16,10 @@ const appRoutes: Routes = [
   {
     path:'create-account',
     component: CreateUserComponent
+  },
+  {
+    path:'login',
+    component: LoginComponent
   }
 ];
 

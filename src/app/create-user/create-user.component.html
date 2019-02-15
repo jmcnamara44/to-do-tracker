@@ -1,4 +1,11 @@
 <div>
-  <label>What would you like your username to be?</label>
-  <input>
+  <form>
+    <label>What would you like your username to be?</label>
+    <input #userName><br>
+    <label>What would you like your password to be?</label>
+    <input type="password" #password><br>
+    <label>Please confirm your password to ensure it matches.</label>
+    <input type="password" #passwordAgain><br>
+    <button (click)="createUser(userName.value, password.value, passwordAgain.value); userName.value=''; password.value=''; passwordAgain.value='';">Create User</button> <!--maybe if the passwords dont match the button will be disabled. a little ngif action?-->
+  </form>
 </div>

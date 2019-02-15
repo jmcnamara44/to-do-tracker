@@ -13,6 +13,7 @@ import { EditActivityComponent } from './edit-activity/edit-activity.component';
 import { FormsModule } from '@angular/forms';
 import { CalendarComponent } from './calendar/calendar.component';
 import { CreateUserComponent } from './create-user/create-user.component';
+import { LoginComponent } from './login/login.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -30,7 +31,8 @@ export const firebaseConfig = {
     ActivityDetailComponent,
     EditActivityComponent,
     CalendarComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
