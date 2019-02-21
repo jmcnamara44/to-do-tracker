@@ -1,8 +1,8 @@
 <div>
   <form>
-    <label>What would you like your username to be?</label>
+    <label>User name</label>
     <input #userName><br>
-    <label>What would you like your password to be?</label>
+    <label>Password</label>
     <input type="password" #password><br>
     <button (click)="login(userName.value, password.value); userName.value=''; password.value='';">Login</button>
   </form>
