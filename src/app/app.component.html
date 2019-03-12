@@ -1,7 +1,9 @@
 <div>
   <a routerLink="">Home</a>
-  <a routerLink="/login">Login</a>
-  <a routerLink="/create-account">Create a user account</a>
+  <a *ngIf="!isLoggedIn" routerLink="/login">Login</a>
+  <a *ngIf="isLoggedIn" (click)="beginLogout()">Logout</a>
+  <a *ngIf="!isLoggedIn" routerLink="/create-account">Create a user account</a>
   <router-outlet></router-outlet>
+  <p>{{userName}}</p>
   <hr>
 </div>
