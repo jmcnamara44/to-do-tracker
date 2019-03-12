@@ -1,13 +1,16 @@
 
 <div>
-  <h1>Welcome to To-Doing!</h1>
-  <h3>The dynamic to-do list that lets you track how much time you spend doing stuff</h3>
-  <h4>Now...what would you like to do?</h4>
-  <ul>
-    <li (click)="startShowForm()"><a href="#">Create a new hobby/activity</a></li>
+  <h1 class="header">Activity Tracker</h1>
+  <h3 class="header">It's sort of like a to-do list, but with goals.</h3>
+  <h4 class="header">What do you want to do?</h4>
+  <ul class="header">
+    <li (click)="showForm()"><a href="#">Create a new hobby/activity</a></li>
+    <li (click)="showActivity()"><a href="#">View your activities</a></li>
   </ul>
   <div *ngIf="showFormClicked">
-    <app-new-activity></app-new-activity>
+    <app-new-activity (clickSender)="hideForm()"></app-new-activity>
   </div>
-  <app-activity-list></app-activity-list>
+  <div *ngIf="showActivityList">
+    <app-activity-list></app-activity-list>
+  </div>
 </div>

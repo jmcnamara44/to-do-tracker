@@ -10,5 +10,6 @@
     <label>Notes</label>
     <textarea #notes></textarea>
     <button (click)="beginAddNewActivity(name.value, hoursGoal.value, goalCompletionDate.value, notes.value); name.value=''; hoursGoal.value=''; goalCompletionDate.value=''; notes.value='';">Add</button>
+    <button type="button" (click)="cancelNewActivity()">Cancel</button>
   </form>
 </div>

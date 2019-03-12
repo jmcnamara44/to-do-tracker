@@ -8,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent {
 
   showFormClicked = false;
-  startShowForm() {
+  showActivityList = false;
+  showForm() {
     this.showFormClicked = true;
   }
-
+  hideForm() {
+    this.showFormClicked = false;
+  }
+  showActivity() {
+    this.showActivityList = true;
+  }
 }

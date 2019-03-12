@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { ActivityService } from './../activity.service';
 import { Activity } from './../models/activity.model';
 
@@ -8,11 +8,9 @@ import { Activity } from './../models/activity.model';
   styleUrls: ['./new-activity.component.css'],
   providers: [ActivityService]
 })
-export class NewActivityComponent implements OnInit {
+export class NewActivityComponent {
+  @Output() clickSender = new EventEmitter();
   constructor(private activityService: ActivityService) { }
-
-  ngOnInit() {
-  }
 
   beginAddNewActivity(name: string, hoursGoal: string, goalCompletionDate: string, notes: string) {
     event.preventDefault();
@@ -25,5 +23,9 @@ export class NewActivityComponent implements OnInit {
     initialHours[todaysDateToString] = 0;
     var newActivity: Activity = new Activity(name, initialHours, 0, hoursGoalToNumber, goalCompletionDateAsString, notes, todaysDateToString);
     this.activityService.addToActivities(newActivity);
+  }
+
+  cancelNewActivity() {
+    this.clickSender.emit();
   }
 }
