@@ -9,8 +9,12 @@ export class HeaderComponent {
 
   showFormClicked = false;
   showActivityList = false;
-  showForm() {
-    this.showFormClicked = true;
+  formClicked() {
+    if (this.showFormClicked == false) {
+      this.showFormClicked = true;
+    } else {
+      this.showFormClicked = false;
+    }
   }
   hideForm() {
     this.showFormClicked = false;
