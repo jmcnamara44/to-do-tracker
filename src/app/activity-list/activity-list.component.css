@@ -1,9 +1,15 @@
 td, th {
-  border: 1px solid #dddddd;
+  border: 1px solid #161616;
   text-align: left;
   padding: 8px;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd
+  background-color: #d6dff9
+}
+
+.activity-name {
+  cursor: pointer;
+  text-decoration: underline; 
+  color: blue;
 }

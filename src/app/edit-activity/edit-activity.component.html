@@ -1,15 +1,19 @@
-<button (click)="beginUpdatingActivity(15, selectedActivity)">Practiced for 15 minutes</button>
-<button (click)="beginUpdatingActivity(30, selectedActivity)">Practiced for 30 minutes</button>
-<button (click)="beginUpdatingActivity(60, selectedActivity)">Practiced for 1 hour</button>
-<button (click)="beginDeletingActivity(selectedActivity)">Delete Me</button>
-<button (click)="beginEditingGoalDetails(selectedActivity)">Edit Goal Details</button>
+<p>Click a button to add time to your activity for today, or enter in a different amount in the field provided.</p>
+<button (click)="beginUpdatingActivity(15, selectedActivity)">15 minutes</button>
+<button (click)="beginUpdatingActivity(30, selectedActivity)">30 minutes</button>
+<button (click)="beginUpdatingActivity(60, selectedActivity)">1 hour</button>
+
 <div>
   <form>
-    <label>Enter a different pratice amount for today (minutes).</label>
-    <input type="number" min=0 #hoursPracticed><br>
-    <button type="button" (click)="beginUpdatingActivity(hoursPracticed.value, selectedActivity); hoursPracticed.value='';">Add</button>
+    <label></label>
+    <input type="number" min=0 #hoursPracticed>
+    <button type="button" (click)="beginUpdatingActivity(hoursPracticed.value, selectedActivity); hoursPracticed.value='';">Add Custom Amount (minutes)</button>
   </form>
 </div>
+
+<button (click)="beginDeletingActivity(selectedActivity)">Delete Activity</button>
+<button (click)="beginEditingGoalDetails(selectedActivity)">Edit Activity Details</button>
+
 <div *ngIf="editGoal">
   <p>Edit your activity details below!</p>
   <label>Activity Name:</label>
@@ -24,7 +28,7 @@
   <button (click)="cancelEditingGoal()">Cancel</button>
 </div>
 
-<button (click)="beginUpdatingASpecificDay()">Edit a specific days hours practiced</button>
+<button (click)="beginUpdatingASpecificDay()">Edit a different day</button>
 <div *ngIf="editDay">
   <label>Which day would you like to edit?</label>
   <input type="date" [(ngModel)]="practiceDate"><br>

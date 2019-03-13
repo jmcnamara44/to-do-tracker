@@ -14,7 +14,7 @@ export class EditActivityComponent implements OnInit {
   editDay: boolean = false;
   practiceDate = new Date(1970, 0, 0);
   d;
-  
+
   constructor(private activityService: ActivityService, private router: Router) { }
 
   ngOnInit() {
@@ -33,11 +33,13 @@ export class EditActivityComponent implements OnInit {
   }
 
   beginDeletingActivity(activityToDelete){
-    if(confirm("Are you sure you want to delete this activity? This action cannot be undone.")){
-      this.activityService.deleteActivity(activityToDelete);
-      this.router.navigate(['']);
+    if (confirm("Are you sure you want to delete this activity? This action cannot be undone.")) {
+      let activityName = prompt("Type in the name of the activity you'd like to delete to delete it.");
+      if (activityName == activityToDelete.name) {
+        this.activityService.deleteActivity(activityToDelete);
+        this.router.navigate(['']);
+      }
     }
-
   }
 
   beginEditingGoalDetails(activityToEdit) {
@@ -51,24 +53,24 @@ export class EditActivityComponent implements OnInit {
   cancelEditingGoal() {
     this.editGoal = false;
   }
-  
+
   parsePracticeDate(practiceDate) {
     var parts = practiceDate.split('-');
     this.d = (new Date(parts[0], parts[1]-1, parts[2]).toDateString());
   }
-  
+
   changeDayshours(practiceDate, newHours, activity) {
     let parts = practiceDate.split('-');
     let dateParse = (new Date(parts[0], parts[1]-1, parts[2]).toDateString());
     let minutesParse = parseInt(newHours);
-    
+
     if (dateParse in activity.hoursPracticed) {
       activity.totalHoursPracticed -= activity.hoursPracticed[dateParse];
-    } 
-    
+    }
+
     activity.totalHoursPracticed += minutesParse;
     activity.hoursPracticed[dateParse] = minutesParse;
-    
+
     this.activityService.addTime(activity);
   }
 

@@ -1,13 +1,12 @@
 <div>
-  <h3>Below are your current activites with total hours spent.</h3>
   <table>
     <tr>
       <th>Activity Name</th>
-      <th>Hours Practiced</th>
+      <th>Tracked</th>
       <th>Actions</th>
     </tr>
     <tr *ngFor="let activity of activities | async">
-      <td (click)="goToDetailPage(activity)">{{activity.name}}</td>
+      <td (click)="goToDetailPage(activity)"><span class="activity-name">{{activity.name}}</span></td>
       <td>{{(activity.totalHoursPracticed / 60) | number: '1.0-2' }}</td>
       <td><app-edit-activity [selectedActivity]="activity"></app-edit-activity></td>
     </tr>
