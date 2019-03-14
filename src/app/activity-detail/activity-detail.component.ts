@@ -38,6 +38,16 @@ export class ActivityDetailComponent implements OnInit {
     //   this.objectKeys = Object.keys(this.activityToDisplay.hoursPracticed).length;
     //   this.todaysHours = this.activityToDisplay.hoursPracticed[(new Date().toDateString())];
     // })
+    this.userService.currentActivity.subscribe(dataLastEmittedFromObserver => {
+      this.activityToDisplay = dataLastEmittedFromObserver;
+      var date1: Date = new Date();
+      var date2: Date = new Date(this.activityToDisplay.dateCreated);
+      var date3: Date = new Date(this.activityToDisplay.goalCompletionDate);
+      this.totalDays = Math.round((date1.getTime() - date2.getTime()) / 1000 / 60 / 60 / 24);
+      this.goalDaysRange = Math.round((date3.getTime() - date2.getTime()) / 1000 / 60 / 60 / 24);
+      this.objectKeys = Object.keys(this.activityToDisplay.hoursPracticed).length;
+      this.todaysHours = this.activityToDisplay.hoursPracticed[(new Date().toDateString())];
+    })
   }
 
 }

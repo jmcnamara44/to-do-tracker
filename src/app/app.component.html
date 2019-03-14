@@ -1,8 +1,7 @@
 <div>
   <a routerLink="">Home</a>
-  <!-- uncomment these lines out once we get the functionality for logging in and out working -->
-  <a routerLink="/login">Login</a>
   <a routerLink="/create-account">Register</a>
+  <a routerLink="/login">Login</a>
   <a (click)="beginLogout()" class="link">Logout</a>
   <a (click)="goToUserHome()" class="link">My Page</a>
   <router-outlet></router-outlet>

@@ -45,10 +45,8 @@ export class UserServiceService {
       this.currentUser = this.database.object('users/' + key);
       this.activities = this.database.list('users/' + key + '/activities');
       this.currentUser.subscribe(user => {
-        console.log("This is the state: " + user);
         this.currentUserKey = user.$key;
       })
-      console.log(this.activities);
     }
 
     setActivity(uid, aid) {

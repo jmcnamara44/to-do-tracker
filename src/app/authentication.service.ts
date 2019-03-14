@@ -14,7 +14,6 @@ export class AuthenticationService {
   {
     this.user = firebaseAuth.authState;
     this.users = database.list('users');
-    console.log(this.user);
   }
 
   getUserByUserName(userName: string) {
