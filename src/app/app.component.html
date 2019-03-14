@@ -1,5 +1,5 @@
 <div>
-  <a routerLink="">Home</a>
+  <!-- <a routerLink="">Home</a> -->
   <a routerLink="/create-account">Register</a>
   <a routerLink="/login">Login</a>
   <a (click)="beginLogout()" class="link">Logout</a>
@@ -7,4 +7,12 @@
   <router-outlet></router-outlet>
   <hr>
   <router-outlet></router-outlet>
+  <div class="footer">
+    <form>
+      <h4>Have Feedback?</h4>
+      <label>Please add your comments or suggestions here:</label><br>
+      <textarea #feedback></textarea>
+      <button (click)="beginAddFeedback(feedback.value); feedback.value='';">Add</button>
+    </form>
+  </div>
 </div>

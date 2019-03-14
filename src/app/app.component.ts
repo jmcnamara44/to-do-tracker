@@ -2,17 +2,18 @@ import { Component } from '@angular/core';
 import { AuthenticationService } from './authentication.service';
 import { Router } from '@angular/router';
 import { UserServiceService } from './user-service.service';
+import { ActivityService } from './activity.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [AuthenticationService, UserServiceService]
+  providers: [AuthenticationService, UserServiceService, ActivityService]
 })
 
 export class AppComponent {
   userName: string;
-  constructor(private router: Router, private userService: UserServiceService, private authenticationService: AuthenticationService) { }
+  constructor(private activityService: ActivityService, private router: Router, private userService: UserServiceService, private authenticationService: AuthenticationService) { }
 
   beginLogout() {
     this.authenticationService.logout();
@@ -26,5 +27,8 @@ export class AppComponent {
         this.userService.loginUser(value.uid, value.email);
       }
     })
+  }
+  beginAddFeedback(feedback) {
+    this.activityService.addFeedback(feedback);
   }
 }

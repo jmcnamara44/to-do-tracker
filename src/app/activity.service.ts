@@ -5,10 +5,11 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 @Injectable()
 export class ActivityService {
   activities: FirebaseListObservable<any[]>;
-
+  feedback: FirebaseListObservable<any[]>;
   constructor(private database: AngularFireDatabase)
   {
     this.activities = database.list('activities');
+    this.feedback = database.list('feedback');
   }
   addToActivities(activityToAdd: Activity, uid: string) {
     console.log(uid);
@@ -28,5 +29,8 @@ export class ActivityService {
   deleteActivity(activityToDelete, uid){
     var activityEntryInFirebase = this.getActivityById(activityToDelete.$key, uid);
     activityEntryInFirebase.remove();
+  }
+  addFeedback(feedback: string) {
+    this.feedback.push(feedback);
   }
 }
