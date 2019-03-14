@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +9,7 @@ export class HeaderComponent {
 
   showFormClicked = false;
   showActivityList = false;
+  
   formClicked() {
     if (this.showFormClicked == false) {
       this.showFormClicked = true;

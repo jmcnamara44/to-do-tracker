@@ -26,7 +26,7 @@ export class CreateUserComponent implements OnInit {
     }
     this.authenticationService.createUser(userName, password);
     this.authenticationService.user.subscribe(value => {
-      if (value !==null) {
+      if (value !== null) {
         this.userService.loginUser(value.uid, userName);
       }
     })
