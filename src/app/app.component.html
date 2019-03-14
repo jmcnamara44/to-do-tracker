@@ -1,17 +1,18 @@
 <div>
   <!-- <a routerLink="">Home</a> -->
   <a routerLink="/create-account">Register</a>
-  <a routerLink="/login">Login</a>
-  <a (click)="beginLogout()" class="link">Logout</a>
+  <a *ngIf="!isLoggedIn"routerLink="/login">Login</a>
+  <a *ngIf="isLoggedIn"(click)="beginLogout()" class="link">Logout</a>
   <a (click)="goToUserHome()" class="link">My Page</a>
   <router-outlet></router-outlet>
   <hr>
   <router-outlet></router-outlet>
+  <hr>
   <div class="footer">
     <form>
       <h4>Have Feedback?</h4>
       <label>Please add your comments or suggestions here:</label><br>
-      <textarea #feedback></textarea>
+      <textarea #feedback rows="6" cols="75"></textarea><br>
       <button (click)="beginAddFeedback(feedback.value); feedback.value='';">Add</button>
     </form>
   </div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from './authentication.service';
 import { Router } from '@angular/router';
 import { UserServiceService } from './user-service.service';
@@ -11,12 +11,22 @@ import { ActivityService } from './activity.service';
   providers: [AuthenticationService, UserServiceService, ActivityService]
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   userName: string;
+  isLoggedIn: boolean = false;
   constructor(private activityService: ActivityService, private router: Router, private userService: UserServiceService, private authenticationService: AuthenticationService) { }
+
+  ngOnInit() {
+    this.authenticationService.user.subscribe(value => {
+      if (value !== null) {
+        this.isLoggedIn = true;
+      }
+    })
+  }
 
   beginLogout() {
     this.authenticationService.logout();
+    this.isLoggedIn = false;
     this.router.navigate(['']);
   }
 
