@@ -8,6 +8,7 @@ export class UserServiceService {
   users: FirebaseListObservable<any>;
   currentUser: FirebaseObjectObservable<any>;
   activities: FirebaseListObservable<any>;
+  currentActivity: FirebaseObjectObservable<any>;
   currentUserKey;
 
   constructor(private database: AngularFireDatabase, private router: Router) {
@@ -48,6 +49,10 @@ export class UserServiceService {
         this.currentUserKey = user.$key;
       })
       console.log(this.activities);
+    }
+
+    setActivity(uid, aid) {
+      this.currentActivity = this.database.object('users/' + uid + '/activities/' + aid);
     }
 
 }

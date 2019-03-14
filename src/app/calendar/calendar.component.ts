@@ -17,14 +17,16 @@ export class CalendarComponent implements OnInit {
   today: Date = new Date();
   selectedDate: string;
   months: string[] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  uid: string;
 
   constructor(private route: ActivatedRoute, private location: Location, private activityService: ActivityService) { }
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
       this.activityId = urlParameters['id'];
+      this.uid = urlParameters['uid'];
     });
-    this.activityService.getActivityById(this.activityId).subscribe(dataLastEmittedFromObserver => {
+    this.activityService.getActivityById(this.activityId, this.uid).subscribe(dataLastEmittedFromObserver => {
       this.activityToDisplay = dataLastEmittedFromObserver;
       this.showCalendar(this.currentMonth, this.currentYear)
     })
@@ -93,7 +95,7 @@ export class CalendarComponent implements OnInit {
           if (date === this.today.getDate() && year === this.today.getFullYear() && month === this.today.getMonth()) {
               cell.style.cssText += "background-color: black; color: white;";
           } // color today's date
-          
+
           cell.appendChild(cellText);
           cell.appendChild(lineBreak);
           if (this.activityToDisplay.hoursPracticed.hasOwnProperty(sampleDate)) {

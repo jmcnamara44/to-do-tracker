@@ -26,7 +26,7 @@ export class ActivityListComponent implements OnInit {
   }
 
   goToDetailPage(clickedActivity) {
-    this.router.navigate(['details', clickedActivity.$key]);
+    this.router.navigate(['details', this.uid, clickedActivity.$key]);
   }
 
 }

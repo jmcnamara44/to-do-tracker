@@ -7,7 +7,7 @@
   <form>
     <label></label>
     <input type="number" min=0 #hoursPracticed>
-    <button type="button" (click)="beginUpdatingActivity(hoursPracticed.value, selectedActivity); hoursPracticed.value='';">Add Custom Amount (minutes)</button>
+    <button type="button" value=0 (click)="beginUpdatingActivity(hoursPracticed.value, selectedActivity); hoursPracticed.value='';">Add Custom Amount (minutes)</button>
   </form>
 </div>
 

@@ -11,7 +11,7 @@ const appRoutes: Routes = [
     component: HomePageComponent
   },
   {
-    path: 'details/:id',
+    path: 'details/:uid/:id',
     component: ActivityDetailComponent
   },
   {
