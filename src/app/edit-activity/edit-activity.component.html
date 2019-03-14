@@ -12,9 +12,9 @@
 </div>
 
 <button (click)="beginDeletingActivity(selectedActivity)">Delete Activity</button>
-<button (click)="beginEditingGoalDetails(selectedActivity)">Edit Activity Details</button>
+<!-- <button (click)="beginEditingGoalDetails(selectedActivity)">Edit Activity Details</button> -->
 
-<div *ngIf="editGoal">
+<!-- <div *ngIf="editGoal">
   <p>Edit your activity details below!</p>
   <label>Activity Name:</label>
   <input [(ngModel)]="selectedActivity.name"><br>
@@ -26,7 +26,7 @@
   <textarea [(ngModel)]="selectedActivity.notes"></textarea>
   <button (click)="finishEditingActivity(); name.value=''; hoursGoal.value=''; goalCompletionDate.value=''; notes.value='';">Save Changes</button>
   <button (click)="cancelEditingGoal()">Cancel</button>
-</div>
+</div> -->
 
 <button (click)="beginUpdatingASpecificDay()">Edit a different day</button>
 <div *ngIf="editDay">
