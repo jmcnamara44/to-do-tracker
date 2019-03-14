@@ -23,7 +23,12 @@ export class CreateUserComponent implements OnInit {
     if (password == passwordConfirm) {
       console.log("password matches, congrats loser. you should now be able to see your activities");
     }
-    this.authenticationService.createUser(userName, password)
+    this.authenticationService.createUser(userName, password);
+    this.authenticationService.user.subscribe(value => {
+      if (value !==null) {
+        this.
+      }
+    })
   }
 
 }
