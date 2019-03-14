@@ -9,7 +9,7 @@ export class HeaderComponent {
 
   showFormClicked = false;
   showActivityList = false;
-  
+
   formClicked() {
     if (this.showFormClicked == false) {
       this.showFormClicked = true;

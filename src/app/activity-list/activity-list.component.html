@@ -2,12 +2,12 @@
   <table>
     <tr>
       <th>Activity Name</th>
-      <th>Tracked</th>
+      <th>Hours Tracked</th>
       <th>Actions</th>
     </tr>
-    <tr *ngFor="let activity of activities | async">
+    <tr *ngFor="let activity of userService.activities | async">
       <td (click)="goToDetailPage(activity)"><span class="activity-name">{{activity.name}}</span></td>
-      <td>{{(activity.totalHoursPracticed / 60) | number: '1.0-2' }}</td>
+      <td>{{(activity.totalHoursPracticed / 60) | number: '1.0-2' }} la {{activity}} la</td>
       <td><app-edit-activity [selectedActivity]="activity"></app-edit-activity></td>
     </tr>
   </table>

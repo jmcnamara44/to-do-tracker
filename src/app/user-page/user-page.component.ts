@@ -10,7 +10,6 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
   providers: [UserServiceService]
 })
 export class UserPageComponent implements OnInit {
-  user: FirebaseListObservable<any[]>;
   currentRoute: string = this.router.url;
   uid: string;
 

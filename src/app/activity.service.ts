@@ -10,8 +10,9 @@ export class ActivityService {
   {
     this.activities = database.list('activities');
   }
-  addToActivities(activityToAdd: Activity) {
-    this.activities.push(activityToAdd);
+  addToActivities(activityToAdd: Activity, uid: string) {
+    console.log(uid);
+    this.database.list('users/' + uid + '/activities').push(activityToAdd);
   }
   getActivities() {
     return this.activities;

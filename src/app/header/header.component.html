@@ -2,8 +2,8 @@
   <h1 class="header">Activity Tracker</h1>
   <h3 class="header">It's sort of like a to-do list, but with goals.</h3>
   <h4 class="header">What do you want to do?</h4>
-  <p class="header" (click)="formClicked()"><a href="#">Create a new activity</a></p>
-  <p class="header" (click)="showActivity()"><a href="#">View your activities</a></p>
+  <p class="header link" (click)="formClicked()">Create a new activity</p>
+  <p class="header link" (click)="showActivity()">View your activities</p>
   <div *ngIf="showFormClicked">
     <app-new-activity (clickSender)="hideForm()"></app-new-activity>
   </div>
