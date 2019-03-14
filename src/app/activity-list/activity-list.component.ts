@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Activity } from './../models/activity.model';
 import { ActivityService } from './../activity.service';
-import { Router } from '@angular/router';
-import { FirebaseListObservable } from 'angularfire2/database';
-import { UserServiceService } from '../user-service.service';
+import { UserServiceService } from './../user-service.service';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-activity-list',
@@ -12,13 +12,17 @@ import { UserServiceService } from '../user-service.service';
   providers: [ActivityService, UserServiceService]
 })
 export class ActivityListComponent implements OnInit {
-
-  constructor(private router: Router, private activityService: ActivityService, private userService: UserServiceService) { }
+  uid: string;
+  constructor(private router: Router, private activityService: ActivityService, private userService: UserServiceService, private route: ActivatedRoute) { }
 
   activities: FirebaseListObservable<any[]>;
 
   ngOnInit() {
-    this.activities = this.activityService.getActivities();
+    // this.activities = this.activityService.getActivities();
+    this.route.params.forEach(parameter => {
+      this.uid = parameter['uid'];
+      this.userService.setUser(this.uid);
+    })
   }
 
   goToDetailPage(clickedActivity) {
