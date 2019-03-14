@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(userName, password);
     this.authenticationService.user.subscribe(value => {
       if (value !== null) {
-        console.log(value);
         this.userName = userName;
         this.userService.loginUser(value.uid, userName);
       }
