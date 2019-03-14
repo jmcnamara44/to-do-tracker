@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from './../authentication.service';
+import { UserServiceService } from './../user-service.service';
 
 @Component({
   selector: 'app-create-user',
   templateUrl: './create-user.component.html',
   styleUrls: ['./create-user.component.css'],
-  providers: [AuthenticationService]
+  providers: [AuthenticationService, UserServiceService]
 })
 export class CreateUserComponent implements OnInit {
 
-  constructor(private authenticationService: AuthenticationService) { }
+  constructor(private authenticationService: AuthenticationService, private userService: UserServiceService) { }
 
   ngOnInit() {
   }
@@ -26,7 +27,7 @@ export class CreateUserComponent implements OnInit {
     this.authenticationService.createUser(userName, password);
     this.authenticationService.user.subscribe(value => {
       if (value !==null) {
-        this.
+        this.userService.loginUser(value.uid, userName);
       }
     })
   }

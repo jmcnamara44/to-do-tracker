@@ -16,6 +16,7 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { LoginComponent } from './login/login.component';
 import { AuthenticationService } from './authentication.service';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { UserPageComponent } from './user-page/user-page.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -34,7 +35,8 @@ export const firebaseConfig = {
     EditActivityComponent,
     CalendarComponent,
     CreateUserComponent,
-    LoginComponent
+    LoginComponent,
+    UserPageComponent
   ],
   imports: [
     BrowserModule,

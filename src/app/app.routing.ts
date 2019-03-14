@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { ActivityDetailComponent } from './activity-detail/activity-detail.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { LoginComponent } from './login/login.component';
+import { UserPageComponent } from './user-page/user-page.component';
 const appRoutes: Routes = [
   {
     path: '',
@@ -20,6 +21,10 @@ const appRoutes: Routes = [
   {
     path:'login',
     component: LoginComponent
+  },
+  {
+    path:'user/display/:uid',
+    component: UserPageComponent
   }
 ];
 
